@@ -1,0 +1,36 @@
+name = "cloudflare-proxy"
+compatibility_date = "2024-09-22"
+
+[dev]
+ip = "0.0.0.0"
+port = 8787
+local_protocol = "http"
+
+[env.dev.vars]
+MODE = "debug"
+TARGET_UPSTREAM = "https://registry-1.docker.io"
+
+[env.production]
+name = "cloudflare-proxy"
+routes = [
+   { pattern = "docker.tulingxue.top", custom_domain = true },
+   { pattern = "quay.tulingxue.top", custom_domain = true },
+   { pattern = "gcr.tulingxue.top", custom_domain = true },
+   { pattern = "k8s-gcr.tulingxue.top", custom_domain = true },
+   { pattern = "k8s.tulingxue.top", custom_domain = true },
+   { pattern = "ghcr.tulingxue.top", custom_domain = true },
+   { pattern = "cloudsmith.tulingxue.top", custom_domain = true },
+   { pattern = "chatgpt-api.tulingxue.top", custom_domain = true }
+ ]
+
+[env.production.vars]
+MODE = "production"
+TARGET_UPSTREAM = ""
+
+[env.staging]
+name = "cloudflare-proxy-staging"
+route = { pattern = "docker-staging.tulingxue.top", custom_domain = true }
+
+[env.staging.vars]
+MODE = "staging"
+TARGET_UPSTREAM = ""
