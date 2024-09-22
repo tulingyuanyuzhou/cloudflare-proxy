@@ -4,7 +4,7 @@ addEventListener("fetch", (event) => {
 });
 
 dockerHub = "https://registry-1.docker.io";
-
+chatgpt = "https://chatgpt.com";
 const routes = {
   // production
   "docker.tulingxue.top": dockerHub,
@@ -15,6 +15,7 @@ const routes = {
   "ghcr.tulingxue.top": "https://ghcr.io",
   "cloudsmith.tulingxue.top": "https://docker.cloudsmith.io",
   "ecr.tulingxue.top": "https://public.ecr.aws",
+  "chatgpt.tulingxue.top": chatgpt;
   "chatgpt-api.tulingxue.top": "https://api.openai.com",     
   // staging
   "docker-staging.tulingxue.top": dockerHub
